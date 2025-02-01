@@ -8,7 +8,10 @@ set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
 add_library(LoginSystemLib STATIC
+    src/login.h
     src/login.cpp
+    src/user.h
+    src/user.cpp
 )
 
 target_link_libraries(LoginSystemLib PRIVATE Threads::Threads)
@@ -29,4 +32,4 @@ add_executable(login_tests
     test/tests.cpp
 )
 
-target_link_libraries(login_tests Catch2::Catch2 LoginSystemLib)
+target_link_libraries(login_tests PRIVATE Catch2::Catch2WithMain LoginSystemLib)
