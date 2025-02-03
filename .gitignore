@@ -402,3 +402,6 @@ FodyWeavers.xsd
 
 # Conan setting files
 CMakeUserPresets.json
+
+# MacOS system files
+.DS_Store
