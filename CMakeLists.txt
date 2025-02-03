@@ -8,10 +8,12 @@ set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
 add_library(LoginSystemLib STATIC
-    src/login.h
-    src/login.cpp
+    src/login_system.h
+    src/login_system.cpp
     src/user.h
     src/user.cpp
+    src/singup_system.h
+    src/singup_system.cpp
 )
 
 target_link_libraries(LoginSystemLib PRIVATE Threads::Threads)
