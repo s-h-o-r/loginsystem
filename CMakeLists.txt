@@ -20,6 +20,8 @@ target_link_libraries(LoginSystemLib PRIVATE Threads::Threads)
 
 set(SRC
     src/main.cpp
+    src/app.h
+    src/app.cpp
 )
 
 add_executable(loginsystem
