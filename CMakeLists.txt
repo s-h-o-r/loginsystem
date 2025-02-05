@@ -11,7 +11,8 @@ add_library(LoginSystemLib STATIC
     src/login_system.h
     src/login_system.cpp
     src/user.h
-    src/user.cpp
+    src/user_impl.h
+    src/user_impl.cpp
     src/singup_system.h
     src/singup_system.cpp
 )

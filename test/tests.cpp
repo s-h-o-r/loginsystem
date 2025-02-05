@@ -3,12 +3,12 @@
 
 #include <string>
 
-#include "../src/user.h"
+#include "../src/user_impl.h"
 
 using namespace std::literals;
 
 TEST_CASE("user collect login and password and can check them", "[user]") {
-    user::User user{"login"s, "password"s};
+    user::UserImpl user{"login"s, "password"s};
 
     REQUIRE(user.CheckLogin("login"s));
     REQUIRE(user.CheckPassword("password"s));
