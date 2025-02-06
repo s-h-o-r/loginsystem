@@ -14,7 +14,8 @@ add_library(LoginSystemLib STATIC
     src/user_impl.h
     src/user_impl.cpp
     src/singup_system.h
-    src/singup_system.cpp
+    src/singup_system_impl.h
+    src/singup_system_impl.cpp
 )
 
 target_link_libraries(LoginSystemLib PRIVATE Threads::Threads)

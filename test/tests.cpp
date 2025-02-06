@@ -4,10 +4,11 @@
 #include <string>
 
 #include "../src/user_impl.h"
+#include "../src/singup_system_impl.h"
 
 using namespace std::literals;
 
-TEST_CASE("user collect login and password and can check them", "[user]") {
+TEST_CASE("user collect login and password", "[user]") {
     user::UserImpl user{"login"s, "password"s};
 
     REQUIRE(user.CheckLogin("login"s));
@@ -23,5 +24,22 @@ TEST_CASE("user collect login and password and can check them", "[user]") {
         user.ChangePassword("new_password"s);
         CHECK(user.CheckPassword("new_password"s));
         CHECK(user.CheckLogin("login"s));
+    }
+}
+
+TEST_CASE("SingupSystem creates new users", "[singup]") {
+    singup_system::SingupSystemImpl singup_system;
+    
+    auto new_user = singup_system.SingupUser("login"s, "password"s);
+    
+    SECTION("singup system prepares new user with set login and password") {
+        CHECK(new_user->CheckLogin("login"s));
+        CHECK(new_user->CheckPassword("password"s));
+    }
+
+    SECTION("if login or password is empty throw an exception") {
+        CHECK_THROWS_AS(singup_system.SingupUser(""s, "password"s), std::logic_error);
+        CHECK_THROWS_AS(singup_system.SingupUser("login"s, ""s), std::logic_error);
+
     }
 }
