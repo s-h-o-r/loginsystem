@@ -40,6 +40,5 @@ TEST_CASE("SingupSystem creates new users", "[singup]") {
     SECTION("if login or password is empty throw an exception") {
         CHECK_THROWS_AS(singup_system.SingupUser(""s, "password"s), std::logic_error);
         CHECK_THROWS_AS(singup_system.SingupUser("login"s, ""s), std::logic_error);
-
     }
 }

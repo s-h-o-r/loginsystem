@@ -9,7 +9,8 @@ find_package(Threads REQUIRED)
 
 add_library(LoginSystemLib STATIC
     src/login_system.h
-    src/login_system.cpp
+    src/login_system_impl.h
+    src/login_system_impl.cpp
     src/user.h
     src/user_impl.h
     src/user_impl.cpp
